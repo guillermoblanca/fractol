@@ -1,6 +1,6 @@
 NAME := fractol
 CC := gcc
-CFLAGS := -Wall -Wextra -Werror -I$(INC_DIR)/mlx42/include/mlx42
+CFLAGS := -Wall -Wextra -Werror -g -I$(INC_DIR)/mlx42/include/mlx42
 
 SRC_DIR := src
 OBJ_DIR := obj
