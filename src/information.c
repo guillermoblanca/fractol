@@ -6,7 +6,7 @@
 /*   By: gblanca <gblanca-@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:52:28 by gblanca           #+#    #+#             */
-/*   Updated: 2024/05/23 14:58:02 by gblanca          ###   ########.fr       */
+/*   Updated: 2024/05/27 11:39:22 by gblanca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,42 @@
 
 static void	print_colors(void)
 {
-	printf("---------------------------------------------\n");
-	printf("KEY 1: First palette\n");
-	printf("KEY 2: Second palette\n");
-	printf("KEY 3: Third palette\n");
-	printf("---------------------------------------------\n");
+	write(1, "---------------------------------------------\n", 47);
+	write(1, "KEY 1: First palette\n", 22);
+	write(1, "KEY 2: Second palette\n", 23);
+	write(1, "KEY 3: Third palette\n", 22);
+	write(1, "---------------------------------------------\n", 47);
 }
 
 static void	print_controllers(void)
 {
-	printf("-------------MOVE CONTROLLERS----------------\n");
-	printf("ARROW UP OR    KEY W ----> MOVE UP\n");
-	printf("ARROW DOWN OR  KEY S ----> MOVE DOWN\n");
-	printf("ARROW RIGHT OR KEY D ----> MOVE RIGTH\n");
-	printf("ARROW LEFT OR  KEY A ----> MOVE LEFT\n");
-	printf("MOUSE SCROLL         ----> ZOOM\n");
-	printf("Z(+)  /   X(-)       ----> ZOOM\n");
+	write(1, "-------------MOVE CONTROLLERS----------------\n", 47);
+	write(1, "ARROW UP OR    KEY W ----> MOVE UP\n", 36);
+	write(1, "ARROW DOWN OR  KEY S ----> MOVE DOWN\n", 38);
+	write(1, "ARROW RIGHT OR KEY D ----> MOVE RIGTH\n", 39);
+	write(1, "ARROW LEFT OR  KEY A ----> MOVE LEFT\n", 38);
+	write(1, "MOUSE SCROLL         ----> ZOOM\n", 33);
+	write(1, "Z(+)  /   X(-)       ----> ZOOM\n", 33);
 }
 
-static void	print_algorithms(void)
+void	print_algorithms(void)
 {
-	printf("Choose the algorithm using argumments\n");
-	printf("mandelbrot\n");
-	printf("julia\n");
-	printf("william\n");
+	write(1, "Choose the algorithm using argumments\n", 39);
+	write(1, "mandelbrot\n", 12);
+	write(1, "julia\n", 7);
+	write(1, "william\n", 9);
 }
 
 void	print_instructions(void)
 {
-	printf("---------------------------------------------\n");
-	printf("-------------------FRACTOL-------------------\n");
+	write(1, "---------------------------------------------\n", 47);
+	write(1, "-------------------FRACTOL-------------------\n", 47);
 	print_algorithms();
-	printf("---------------------------------------------\n");
+	write(1, "---------------------------------------------\n", 47);
 	print_controllers();
-	printf("---------------------------------------------\n");
-	printf("T: Reduce iterations\n");
-	printf("Y Increment iterations\n");
-	printf("---------------------------------------------\n");
+	write(1, "---------------------------------------------\n", 47);
+	write(1, "T: Reduce iterations\n", 22);
+	write(1, "Y Increment iterations\n", 24);
+	write(1, "---------------------------------------------\n", 47);
 	print_colors();
-}
-
-static void	print_fractal_error(void)
-{
-	printf("Error you need to choose a valid algorithm before continuing\n");
-}
-
-void	ft_fractal_error(void)
-{
-	print_fractal_error();
-	print_algorithms();
-	exit(EXIT_FAILURE);
 }

@@ -6,16 +6,16 @@
 /*   By: gblanca <gblanca-@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:44:34 by gblanca           #+#    #+#             */
-/*   Updated: 2024/05/23 14:44:36 by gblanca          ###   ########.fr       */
+/*   Updated: 2024/05/27 11:40:54 by gblanca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTALS_H
 # define FRACTALS_H
+# include "../inc/mlx42/include/MLX42/MLX42.h"
 # include <stdint.h>
+# include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include "/home/guille/cursus/level2/fract-ol/inc/mlx42/include/MLX42/MLX42.h"
 # define WIDTH 1024
 # define HEIGHT 720
 # define HEX "0123456789ABCDEF"
@@ -52,6 +52,12 @@ typedef struct s_point
 	double	y;
 }	t_point;
 
+typedef struct s_intvec2
+{
+	uint32_t	x;
+	uint32_t	y;
+}	t_intvec2;
+
 t_point		get_zoomfactor(double zoom, double imageW, double imageH);
 //////////////////////////////////////////////////////
 //
@@ -82,8 +88,9 @@ void		ft_fractal_error(void);
 //						COLOR
 //
 //////////////////////////////////////////////////////
+
+int32_t		ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a);
 uint32_t	get_color(int iter, int max_iter, t_color_func func);
-uint32_t	get_color_interpolated(int iter, int max_iter, float interpolation);
 t_color		hex_to_color(const char *hex);
 t_color		get_palette_pimary(int iteration);
 t_color		get_palette_secondary(int iteration);
@@ -97,4 +104,11 @@ int			lerp(int min, int max, float delta);
 //
 //////////////////////////////////////////////////////
 void		print_instructions(void);
+void		print_algorithms(void);
+//////////////////////////////////////////////////////
+//
+//						LIBFT
+//
+//////////////////////////////////////////////////////
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 #endif
